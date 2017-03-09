@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hohoho</title>
+	<meta charset="utf-8" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+	<header>		
+	</header>
+
+	<main>
+		<form action="update.php" method="POST">
+	        <input hidden id="id" value="<?= $id ?>" name="id"></input>
+	        <td>Titre<input id="title" value="<?= $inTitle ?>" name="inTitle" placeholder="Edit Task"/></td>
+			<td>Objectif<input id="goal" value="<?= $inGoal ?>" name="inGoal" placeholder="Edit Desc"/></td>
+			<td>Echeance<input id="end_date" value="<?= $inEndDate ?>" name="inEndDate" placeholder="Edit Date"/></td>
+			<button type="submit">ok</button>
+		</form>
+	</main>
+
+	<footer>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script src="js/script.js"> </script>
+
+</body>
+</html>

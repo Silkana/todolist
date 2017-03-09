@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hohoho</title>
+	<meta charset="utf-8" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+	<header>
+		
+	</header>
+
+	<main>
+		<table class="standard-table">
+            <caption><img src="img/todo.png" />todolist</caption>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Objectif</th>
+                    <th>Date d'échéance</th>
+                    <th>delete</th>
+                    <th>update</th>
+                </tr>
+            </thead>
+
+	        <tbody>
+	        	<?php
+	        	$listLen = count($todoList);
+
+	        	for($i=0; $i < $listLen; $i++){ ?>
+	        	<?php $todoListItem = $todoList[$i]; ?>
+				<tr id="row_<?= $todoListItem['id']?>" >
+					<td><?= $todoListItem['title']?></td>
+					<td><?= $todoListItem['goal']?></td>
+					<td><?= $todoListItem['end_date']?></td>
+					<td><button onclick="alertOnClick(<?= $todoListItem["id"]?>);"><i class="fa fa-times" aria-hidden="true"></button></i></td>
+					
+
+
+					<td>
+						<a href="update.php?
+											id=<?=$todoListItem['id']?>&
+											inTitle=<?=$todoListItem['title']?>&
+											inGoal=<?=$todoListItem['goal']?>&
+											inEndDate=<?=$todoListItem['end_date']?>">
+							<button> 
+							
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</button>
+						</a>
+					</td>
+
+
+
+
+				</tr>
+				<?php if(isset($ret)&& $ret= 0){
+					echo("tg");
+				} ?>
+	        	
+	        <?php } ?>
+            </tbody>
+        </table>
+        <br />
+        <table>
+        	<thead>
+        		<form id="hideable" action="insert.php" method="POST">
+        			<tr>
+	        			<td>Titre<input id="title" name="inTitle" method="POST" /></td>
+	        			<td>Objectif<input id="goal" name="inGoal" method="POST" /></td>
+	        			<td>Echeance<input id="end_date" name="inEndDate" method="POST" /></td>
+       				</tr>
+       				<button type="submit">ok</button>
+       			</form>		
+          	</thead>
+        </table>
+
+	</main>
+
+	<footer>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script src="js/script.js"> </script>
+
+</body>
+</html>
